@@ -8,7 +8,7 @@ Clone the repository to your computer. In your console, run `bundle install` to 
 Bug reports and pull requests are welcome on GitHub at https://github.com/jingruzhang/tea-leaves. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](contributor-covenant.org) code of conduct.
 
 ## Ruby Version
-2.3.0
+2.4.0
 
 ## Authors
 
