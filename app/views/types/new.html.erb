@@ -1,0 +1,19 @@
+<h1>New Type</h1>
+
+<div>
+   <%= form_for(@type) do |f| %>
+
+        <div class="field"> <%= f.label :name %><br>
+        <%= f.text_field :name %></div>
+
+        <div class="field"><%= f.label :about, "About this type of tea: " %><br>
+        <%= f.text_area :about, size: "40x10"%></div>
+
+        <div class="field"><%= f.label :instruction, "How to brew this type of tea? " %><br>
+        <%= f.text_area :instruction, size: "40x10" %></div><br>
+
+        <div class="actions"><%= f.submit 'Submit', :class => 'btn btn-primary' %></div>
+
+    <% end %>
+</div>
+
