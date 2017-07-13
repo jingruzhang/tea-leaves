@@ -1,4 +1,4 @@
-<h3><%= @tea.type.name %></h3>
+<h3><%= link_to @tea.type.name, @tea.type %></h3>
 
 <h1><%= @tea.name%></h1>
 
@@ -6,7 +6,11 @@
 <p><%= @tea.origin %></p>
 
 <h2>Flavor & Aroma: </h2>
-<p><%= @tea.profile %></p><br>
+<p><%= @tea.profile %></p>
 
 <h2>How to brew <%= @tea.name %> tea: </h2>
 <p><%= @tea.instruction %></p>
+
+
+<%= link_to "Edit #{@tea.name}", edit_type_tea_path(@tea.type, @tea) %><br>
+<a href="/types/<%= @tea.type.id%>/teas/<%= @tea.id %>/destroy">Delete <%= @tea.name%></a>

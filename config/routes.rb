@@ -10,4 +10,8 @@ Rails.application.routes.draw do
     resources :users do
         resources :reviews
     end
+
+    # destroy as get request
+    get '/types/:type_id/teas/:id/destroy', to: 'teas#delete'
+    get '/types/:id/destroy', to: 'types#delete'
 end

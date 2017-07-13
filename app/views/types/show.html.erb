@@ -1,7 +1,17 @@
-<h1><%= @type.name%></h1><br>
+<p><%= link_to "All Types", types_path %></p>
 
 <h2>About <%= @type.name%> Tea: </h2>
-<p><%= @type.about %></p><br>
+<p><%= @type.about %></p>
 
 <h2>How to brew <%= @type.name %> tea: </h2>
 <p><%= @type.instruction %></p>
+
+<%= link_to "Edit #{@type.name} category", edit_type_path(@type) %><br>
+<a href="/types/<%= @type.id%>/destroy">Delete <%= @type.name%> category</a>
+
+<h2>List of <%= @type.name%> teas: </h2>
+<ul>
+    <%= render @type.teas %>
+</ul><br>
+
+<%= link_to "Add a new #{@type.name} tea", new_type_tea_path(@type) %>

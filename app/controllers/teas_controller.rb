@@ -1,16 +1,17 @@
 class TeasController < ApplicationController
+    before_action :set_tea, only: [:show, :edit, :update, :delete]
+    before_action :set_type, only: [:create, :index, :edit, :update, :delete]
 
     def new
         if params[:type_id] && !Type.exists?(params[:type_id])
             redirect_to types_path, alert: "Type not found."
         else
-            @type = Type.find_by(id: params[:type_id])
+            set_type
             @tea = Tea.new
         end
     end
 
     def create
-        @type = Type.find_by(id: params[:type_id])
         @tea = Tea.new(tea_params)
         if @tea.save
             redirect_to [@type, @tea]
@@ -20,15 +21,37 @@ class TeasController < ApplicationController
     end
 
     def show
-        @tea = Tea.find_by(id: params[:id])
     end
 
     def index
-        @type = Type.find_by(id: params[:type_id])
         @teas = @type.teas
     end
 
+    def edit
+    end
+
+    def update
+        if @tea.update(tea_params)
+            redirect_to [@type, @tea]
+        else
+            render :edit
+        end
+    end
+
+    def delete
+        @tea.destroy
+        redirect_to [@type, @tea], notice: 'successfully deleted'
+    end
+
     private
+
+    def set_type
+        @type = Type.find_by(id: params[:type_id])
+    end
+
+    def set_tea
+        @tea = Tea.find_by(id: params[:id])
+    end
 
     def tea_params
         params.require(:tea).permit(:name, :origin, :profile, :instruction, :type_id)
