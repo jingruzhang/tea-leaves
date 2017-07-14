@@ -1,6 +1,9 @@
-<h1>What types of tea are you looking for?</h1>
-<ul>
-<%= render @types%>
-</ul><br>
+<div class="container">
+    <h1>What types of tea are you looking for?</h1><br>
+    <ul>
+        <%= render @types%>
+    </ul><br>
+    <p><a class="btn btn-primary btn-lg" href="/types/new" role="button">Add a new type of tea</a></p>
+</div>
 
-<%= link_to "Add a new type", new_type_path %>
+

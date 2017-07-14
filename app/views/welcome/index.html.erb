@@ -1,13 +1,16 @@
 <div class="jumbotron">
     <div class="container">
-    <h1>Find your cup of tea</h1>
-    <% if current_user %>
-        <p>Happy to see you here, <%= current_user.name %></p>
-        <p><a class="btn btn-primary btn-lg" href="/types" role="button">Start Browsing</a></p>
-    <% else %>
-        <p>Want to see the tea you've reviewed? Sign in for the full experience! </p>
-        <p><a class="btn btn-primary btn-lg" href="/users/sign_in" role="button">Sign In</a></p>
-    <% end %>
+        <h1>Find your cup of tea</h1><br>
+        <% if current_user %>
+            <p>Happy to see you here, <%= current_user.name %></p>
+            <p><a class="btn btn-primary btn-lg" href="/types" role="button">Start Browsing</a></p>
+        <% else %>
+            <p>Want to see the tea you've reviewed?  </p>
+            <p>Sign in for the full experience!
+            </p><br>
+            <p><a class="btn btn-primary btn-lg" href="/users/sign_in" role="button">Sign In</a></p>
+        <% end %>
     </div>
 </div>
+
 

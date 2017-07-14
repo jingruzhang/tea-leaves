@@ -1,17 +1,19 @@
-<p><%= link_to "All Types", types_path %></p>
+<div class="container">
+    <h2>About <%= @type.name%> Tea: </h2>
+    <p><%= @type.about %></p>
 
-<h2>About <%= @type.name%> Tea: </h2>
-<p><%= @type.about %></p>
+    <h2>How to brew <%= @type.name %> tea: </h2>
+    <p><%= @type.instruction %></p>
 
-<h2>How to brew <%= @type.name %> tea: </h2>
-<p><%= @type.instruction %></p>
+    <%= link_to "Edit #{@type.name} category", edit_type_path(@type) %><br>
+    <a href="/types/<%= @type.id%>/destroy">Delete <%= @type.name%> category</a>
 
-<%= link_to "Edit #{@type.name} category", edit_type_path(@type) %><br>
-<a href="/types/<%= @type.id%>/destroy">Delete <%= @type.name%> category</a>
+    <h2>List of <%= @type.name%> teas: </h2>
+    <ul>
+        <%= render @type.teas %>
+    </ul><br>
+    <p>Didn't see what you're looking for?</p>
+    <p><a class="btn btn-primary btn-lg" href="/types/<%=@type.id %>/teas/new" role="button">Add a new <%= @type.name%> tea</a></p>
+    <p><a class="btn btn-primary btn-lg" href="/types" role="button">See Other Types</a></p>
+</div>
 
-<h2>List of <%= @type.name%> teas: </h2>
-<ul>
-    <%= render @type.teas %>
-</ul><br>
-
-<%= link_to "Add a new #{@type.name} tea", new_type_tea_path(@type) %>
