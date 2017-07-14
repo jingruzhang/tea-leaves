@@ -5,15 +5,20 @@
     <h2>How to brew <%= @type.name %> tea: </h2>
     <p><%= @type.instruction %></p>
 
-    <%= link_to "Edit #{@type.name} category", edit_type_path(@type) %><br>
-    <a href="/types/<%= @type.id%>/destroy">Delete <%= @type.name%> category</a>
-
+    <% if current_user.try(:admin?) %>
+        <p><a class="btn btn-primary btn-lg" href="/types/<%=@type.id %>/edit" role="button">Edit <%= @type.name %> category</a></p>
+        <p><a class="btn btn-primary btn-lg" href="/types/<%= @type.id%>/destroy" role="button">Delete <%= @type.name %> category</a></p>
+    <% end %>
     <h2>List of <%= @type.name%> teas: </h2>
     <ul>
         <%= render @type.teas %>
     </ul><br>
+    <% if current_user %>
     <p>Didn't see what you're looking for?</p>
     <p><a class="btn btn-primary btn-lg" href="/types/<%=@type.id %>/teas/new" role="button">Add a new <%= @type.name%> tea</a></p>
+    <% else %>
+    <p><a class="btn btn-primary btn-lg" href="/users/sign_in" role="button">Sign in to add tea and reviews!</a></p>
     <p><a class="btn btn-primary btn-lg" href="/types" role="button">See Other Types</a></p>
+    <% end %>
 </div>
 

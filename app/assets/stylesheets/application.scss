@@ -20,14 +20,13 @@ html {
 }
 
 body {
-  background-image: url("green-tea.jpg");
-  background-size: cover;
   padding-top: 50px;
   padding-bottom: 20px;
 }
 
 .jumbotron {
-  background-color: #11ffee00;
+  background-image: url("green-tea.jpg");
+  background-size: cover;
 }
 
 
@@ -45,7 +44,6 @@ a:focus,
 a:hover {
   color: #000;
 }
-
 
 .field_with_errors>textarea,
 .field_with_errors>input {

@@ -1,19 +1,20 @@
 <div class="container">
-    <h3><%= link_to @tea.type.name, @tea.type %></h3>
-
     <h1><%= @tea.name%></h1>
-
-    <h2>Origin: </h2>
+    <p>Type: <%= link_to @tea.type.name, @tea.type %></p>
+    <h3>Origin: </h3>
     <p><%= @tea.origin %></p>
 
-    <h2>Flavor & Aroma: </h2>
+    <h3>Flavor & Aroma: </h3>
     <p><%= @tea.profile %></p>
 
-    <h2>How to brew <%= @tea.name %> tea: </h2>
-    <p><%= @tea.instruction %></p>
+    <h3>How to brew <%= @tea.name %> tea: </h3>
+    <p><%= @tea.instruction %></p><br>
 
+    <% if current_user.try(:admin?) %>
+        <p><a class="btn btn-primary btn-lg" href="/types/<%= @tea.type.id%>/teas/<%= @tea.id%>/edit" role="button">Edit <%= @tea.name%></a></p>
+        <p><a class="btn btn-primary btn-lg" href="/types/<%= @tea.type.id%>/teas/<%= @tea.id %>/destroy" role="button">Delete <%= @tea.name%></a></p>
+    <% end %>
 
-    <%= link_to "Edit #{@tea.name}", edit_type_tea_path(@tea.type, @tea) %><br>
-    <a href="/types/<%= @tea.type.id%>/teas/<%= @tea.id %>/destroy">Delete <%= @tea.name%></a>
+    <p><a class="btn btn-primary btn-lg" href="/types/<%= @tea.type.id%>/teas" role="button">See other <%= @tea.type.name %> tea</a></p>
 
 </div>

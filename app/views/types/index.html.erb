@@ -1,9 +1,14 @@
 <div class="container">
     <h1>What types of tea are you looking for?</h1><br>
-    <ul>
-        <%= render @types%>
-    </ul><br>
-    <p><a class="btn btn-primary btn-lg" href="/types/new" role="button">Add a new type of tea</a></p>
+    <div class="col-sm-6">
+        <div class="list-group">
+            <%= render @types%>
+        </div>
+        <% if current_user.try(:admin?) %>
+        <p><a class="btn btn-primary btn-lg" href="/types/new" role="button">Add a new type of tea</a></p>
+    <% end %>
+    </div><!-- /.col-sm-6 -->
+
 </div>
 
 

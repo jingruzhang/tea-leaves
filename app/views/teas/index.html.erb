@@ -1,8 +1,12 @@
 <div class="container">
-    <p><%= link_to "All Types", types_path %></p>
     <h1>List of <%=@type.name%> teas:</h1>
-    <ul>
-    <%= render @teas %>
-    </ul><br>
+    <div class="col-sm-6">
+        <div class="list-group">
+            <%= render @teas %>
+        </div>
+        <p><a class="btn btn-primary btn-lg" href="/types" role="button">See Other Types</a></p>
+    </div><!-- /.col-sm-6 -->
+
+
 </div>
 
