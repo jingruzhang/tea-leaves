@@ -1,0 +1,14 @@
+<div class="container">
+    <h1>Review <%= @tea.name %></h1>
+    <h3>Origin: </h3>
+    <p><%= @tea.origin %></p>
+
+    <h3>Flavor & Aroma: </h3>
+    <p><%= @tea.profile %></p>
+
+    <h3>How to brew <%= @tea.name %> tea: </h3>
+    <p><%= @tea.instruction %></p>
+
+    <%= render 'form' %>
+</div>
+

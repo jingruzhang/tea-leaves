@@ -3,11 +3,11 @@ class TeasController < ApplicationController
     before_action :set_type, only: [:create, :index, :edit, :update, :delete]
 
     def new
-        if params[:type_id] && !Type.exists?(params[:type_id])
-            redirect_to types_path, alert: "Type not found."
-        else
+        if Type.exists?(params[:type_id])
             set_type
             @tea = Tea.new
+        else
+            redirect_to types_path, alert: "Type not found."
         end
     end
 
@@ -21,6 +21,7 @@ class TeasController < ApplicationController
     end
 
     def show
+        @reviews = @tea.reviews
     end
 
     def index

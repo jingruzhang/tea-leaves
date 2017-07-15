@@ -7,13 +7,14 @@ Rails.application.routes.draw do
         resources :teas
     end
 
-    resources :users do
+    resources :teas do
         resources :reviews
     end
 
     # destroy as get request
     get '/types/:type_id/teas/:id/destroy', to: 'teas#delete'
     get '/types/:id/destroy', to: 'types#delete'
+    get '/teas/:tea_id/reviews/:id/delete', to: 'reviews#delete'
 
     get '/become_admin', to: 'users#become_admin'
     get '/become_user', to: 'users#become_user'

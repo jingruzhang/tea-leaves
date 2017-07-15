@@ -1,0 +1,13 @@
+<%= form_for [@tea, @review] do |f| %>
+
+    <%= f.hidden_field :user_id, value: current_user.id %>
+
+    <%= f.hidden_field :tea_id, value: @tea.id %>
+
+    <div class="field"> <h3>Your Review <%= f.label :content %></h3> <%= f.text_area :content, size: "80x10" %></div>
+
+    <%= f.submit 'Submit', :class => 'btn btn-primary' %>
+
+    <a class="btn btn-primary" href="/teas/<%= @tea.id%>" role="button">Back</a>
+
+<% end %>

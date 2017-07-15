@@ -1,24 +1,27 @@
 <div class="container">
-    <h2>About <%= @type.name%> Tea: </h2>
-    <p><%= @type.about %></p>
+    <div class="col-md-8">
+        <h2>About <%= @type.name%> Tea: </h2>
+        <p><%= @type.about %></p>
 
-    <h2>How to brew <%= @type.name %> tea: </h2>
-    <p><%= @type.instruction %></p>
+        <h2>How to brew <%= @type.name %> tea: </h2>
+        <p><%= @type.instruction %></p>
 
-    <% if current_user.try(:admin?) %>
-        <p><a class="btn btn-primary btn-lg" href="/types/<%=@type.id %>/edit" role="button">Edit <%= @type.name %> category</a></p>
-        <p><a class="btn btn-primary btn-lg" href="/types/<%= @type.id%>/destroy" role="button">Delete <%= @type.name %> category</a></p>
-    <% end %>
-    <h2>List of <%= @type.name%> teas: </h2>
-    <ul>
+        <% if current_user.try(:admin?) %>
+            <p><a class="btn btn-primary" href="/types/<%=@type.id %>/edit" role="button">Edit <%= @type.name %> category</a>    <a class="btn btn-primary" href="/types/<%= @type.id%>/destroy" role="button">Delete <%= @type.name %> category</a></p>
+        <% end %>
+    </div>
+    <div class="col-sm-3">
+        <h2>List of <%= @type.name%> teas: </h2>
         <%= render @type.teas %>
-    </ul><br>
-    <% if current_user %>
-    <p>Didn't see what you're looking for?</p>
-    <p><a class="btn btn-primary btn-lg" href="/types/<%=@type.id %>/teas/new" role="button">Add a new <%= @type.name%> tea</a></p>
-    <% else %>
-    <p><a class="btn btn-primary btn-lg" href="/users/sign_in" role="button">Sign in to add tea and reviews!</a></p>
-    <p><a class="btn btn-primary btn-lg" href="/types" role="button">See Other Types</a></p>
-    <% end %>
+        <% if current_user %>
+        <p>Didn't see what you're looking for?</p>
+        <p><a class="btn btn-primary" href="/types/<%=@type.id %>/teas/new" role="button">Add a new <%= @type.name%> tea</a></p>
+        <% else %>
+        <br>
+        <p><a class="btn btn-primary" href="/users/sign_in" role="button">Sign in to add tea and reviews!</a></p>
+        <% end %>
+        <p><a class="btn btn-primary" href="/types" role="button">See Other Types</a></p>
+    </div>
+
 </div>
 

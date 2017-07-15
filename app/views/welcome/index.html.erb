@@ -1,29 +1,25 @@
 <div class="container">
-    <% if current_user && !current_user.try(:admin?) %>
-        <p>Current status: You are a member.</p>
-        <p>Being an admin means you can edit tea types and tea information. With power comes responsibility. If you see yourself being a tea expert and can help maintain our database, join us!  <a class="btn btn-xs btn-default" href="/become_admin" role="button">Be an admin!</a></p>
-    <% elsif current_user && current_user.try(:admin?) %>
-        <p>Current status: You are an admin.</p>
-        <p>Browsing and reviewing teas are enough for you? Don't want to edit tea information? Simply switch back to member status and enjoy the app. <a class="btn btn-xs btn-default" href="/become_user" role="button">Be a member!</a></p>
-
-    <% else %>
-        <p>Current status: You are a vistor.</p>
-    <% end %>
     <div class="jumbotron">
-    <div class="container">
         <h1>Find your cup of tea</h1><br>
         <% if current_user %>
             <p>Happy to see you here, <%= current_user.name %></p>
-            <p>You can browse tea and add your reviews! </p>
             <p><a class="btn btn-primary btn-lg" href="/types" role="button">Start Browsing</a></p>
         <% else %>
+            <p>Current status: You are a vistor.</p>
             <p>Want to see the tea you've reviewed?  </p>
             <p>Sign in for the full experience!
             </p><br>
             <p><a class="btn btn-primary btn-lg" href="/users/sign_in" role="button">Sign In</a></p>
+        <% end %><br/>
+        <% if current_user && !current_user.try(:admin?) %>
+            <p>Current status: You are a member.</p>
+            <p>You can browse tea and add reviews! </p>
+            <p>Want to be an editor? Being an editor means you can edit category information. With power comes responsibility. If you see yourself as a tea expert with vigor to help maintain our database, please click the button and join us!</p> <a class="btn btn-md btn-info" href="/become_admin" role="button">Be an editor!</a>
+        <% elsif current_user && current_user.try(:admin?) %>
+            <p>Current status: You are an editor.</p>
+            <p>However, you just want to be a member of the community and review tea? </p> <p>Switch back to member status and enjoy the app the way you like. </p> <a class="btn btn-md btn-info" href="/become_user" role="button">Be a member!</a>
         <% end %>
     </div>
-</div>
 </div>
 
 

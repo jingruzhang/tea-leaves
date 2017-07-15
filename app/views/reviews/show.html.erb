@@ -1,0 +1,6 @@
+<div class="container">
+    <%= render @review %>
+    <a class="btn btn-default" href="/teas/<%= @review.tea.id%>/reviews/<%= @review.id%>/edit" role="button">Edit</a>
+    <a class="btn btn-default" href="/teas/<%= @review.tea.id%>/reviews/<%= @review.id%>/delete" role="button">Delete</a>
+</div>
+
