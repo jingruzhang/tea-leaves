@@ -18,4 +18,5 @@ Rails.application.routes.draw do
 
     get '/become_admin', to: 'users#become_admin'
     get '/become_user', to: 'users#become_user'
+    get '/users/:user_id/reviews', to: 'reviews#index', as: :user_reviews
 end

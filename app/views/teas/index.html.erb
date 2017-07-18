@@ -4,7 +4,8 @@
         <div class="list-group">
             <%= render @teas %>
         </div>
-        <p><a class="btn btn-primary btn-lg" href="/types" role="button">See Other Types</a></p>
+        <p><a class="btn btn-primary" href="/types/<%=@type.id %>/teas/new" role="button">Add a new <%= @type.name%> tea</a>
+         <a class="btn btn-primary" href="/types" role="button">See other types</a></p>
     </div><!-- /.col-sm-6 -->
 </div>
 

@@ -1,22 +1,19 @@
 <div class="container">
+    <% if !current_user %>
+        <p>Current status: You are a vistor.<a class="btn btn-lg btn-link" href="/users/sign_in" role="button">Sign in</a>for the full experience!
+        </p>
+    <% end %>
     <div class="jumbotron">
-        <% if current_user %>
-            <p>Happy to see you here, <%= current_user.name %>.</p>
-        <% else %>
-            <p>Current status: You are a vistor.</p>
-            <p><a class="btn btn-lg btn-link" href="/users/sign_in" role="button">Sign in</a>for the full experience!
-            </p>
-        <% end %>
         <h1>Find your cup of tea</h1><br>
+        <p>Tea Leaves is an online community for people to learn about tea. <br>You can browse flavor profiles and brewing instructions of different types of tea. <br> Once you're logged in, you can write reviews and add tea. <br> <b> We hope Tea Leaves will change the way you drink tea.</b></p>
         <p><a class="btn btn-primary btn-lg" href="/types" role="button">Start Browsing</a></p><br>
         <% if current_user && !current_user.try(:admin?) %>
-            <p>Current status: You are a member.</p>
-            <p>You can browse tea and add reviews! </p>
-            <p>Want to be an editor? Being an editor means you can edit category information. With power comes responsibility. </p>
-            <p>If you see yourself as a tea expert with vigor to help maintain our database, please click the button and join us!</p> <a class="btn btn-md btn-info" href="/become_admin" role="button">Be an editor!</a>
+            <p>Current status: You are a member. <br>
+            You can browse tea and add reviews! <br>
+            <small>Want to be an editor? An editor is responsible for editing categorial information. <br>If you see yourself as a tea expert with the vigor to maintain Tea Leaves' database, join us!</small> </p> <a class="btn btn-md btn-info" href="/become_admin" role="button">Be an editor!</a>
         <% elsif current_user && current_user.try(:admin?) %>
-            <p>Current status: You are an editor.</p>
-            <p>Or you just want to be a member of the community and review tea? </p> <p>Switch back to member status and enjoy the app the way you like. </p> <a class="btn btn-md btn-info" href="/become_user" role="button">Be a member!</a>
+            <p>Current status: You are an editor. An editor is responsible for editing content on the site. <br>
+            <small>Do you just want to be a member of the community? <br> Switch back to member status and enjoy the app the way you like. </small></p> <a class="btn btn-md btn-info" href="/become_user" role="button">Be a member!</a>
         <% end %>
     </div>
 </div>

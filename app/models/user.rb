@@ -21,4 +21,8 @@ class User < ApplicationRecord
         end
     end
 
+    def self.reviews
+        Review.where("user_id = ?", self.id)
+    end
+
 end

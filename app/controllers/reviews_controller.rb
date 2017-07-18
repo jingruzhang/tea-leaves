@@ -38,6 +38,10 @@ class ReviewsController < ApplicationController
         redirect_to tea_path(@tea, notice: 'successfully deleted')
     end
 
+    def index
+        @reviews = current_user.reviews
+    end
+
     private
 
     def set_tea
