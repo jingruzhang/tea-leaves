@@ -1,7 +1,7 @@
 class TeasController < ApplicationController
     before_action :set_tea, only: [:show, :edit, :update, :delete]
     before_action :set_type, only: [:create, :index, :edit, :update, :delete]
-
+    before_action :authenticate_user!, only: [:new, :create, :edit, :update, :delete]
     def new
         if Type.exists?(params[:type_id])
             set_type

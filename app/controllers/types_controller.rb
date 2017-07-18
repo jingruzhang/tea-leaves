@@ -1,5 +1,6 @@
 class TypesController < ApplicationController
     before_action :set_type, only: [:edit, :update, :delete]
+    before_action :authenticate_admin!, only: [:new, :create, :edit, :update, :delete]
 
     def new
         @type = Type.new
@@ -47,6 +48,12 @@ class TypesController < ApplicationController
 
     def type_params
         params.require(:type).permit(:name, :about, :instruction)
+    end
+
+    def authenticate_admin!
+        if current_user && !current_user.admin?
+            redirect_to root_url, notice: 'Only editors are allowed to do that!'
+        end
     end
 
 end
