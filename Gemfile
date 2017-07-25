@@ -41,6 +41,7 @@ gem 'devise'
 # gem 'bcrypt', '~> 3.1.7'
 gem 'omniauth'
 gem 'omniauth-facebook'
+gem 'omniauth-github'
 gem 'dotenv-rails'
 gem 'bootstrap-sass', '~> 3.3.6'
 # Use Capistrano for deployment
