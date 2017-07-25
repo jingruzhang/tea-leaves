@@ -4,6 +4,7 @@ class User < ApplicationRecord
     :omniauthable, :omniauth_providers => [:facebook]
 
     has_many :reviews
+    validates :name, uniqueness: true
 
     def self.from_omniauth(auth)
         where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
@@ -19,10 +20,6 @@ class User < ApplicationRecord
                 user.email = data["email"] if user.email.blank?
             end
         end
-    end
-
-    def self.reviews
-        Review.where("user_id = ?", self.id)
     end
 
 end

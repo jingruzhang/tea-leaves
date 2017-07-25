@@ -2,6 +2,16 @@
     <% if @reviews.present? %>
         <%= render @reviews %>
     <% else %>
-        <h2>You haven't reviewed any tea yet. Browse and review teas you've tried!</h2>
+        <h2>You haven't reviewed any tea yet. </h2>
     <% end %>
+    <h2>Here are teas that all users have reviewed. </h2>
+    <ul>
+    <% Review.reviewed_tea.each do |t| %>
+        <% if !t.nil? %>
+            <li><%= link_to t.name, t %></li>
+        <% end %>
+    <% end %>
+    </ul>
+
+
 </div>

@@ -1,4 +1,4 @@
 <li><a href="/">Hello, <%= current_user.email %>!</a></li>
-<li><%= link_to("Your Reviews", user_reviews_path(current_user.id)) %></li>
+<li><%= link_to("Reviews", user_reviews_path(current_user.id)) %></li>
 <li><%= link_to("Sign out", destroy_user_session_path, :method => 'delete') %></li>
 <li><%= link_to "Delete account", destroy_user_path(current_user), method: :delete, data: { confirm: "You sure? Your reviews will be deleted as well." } %></li>

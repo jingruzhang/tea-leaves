@@ -3,4 +3,5 @@ class Tea < ApplicationRecord
     has_many :reviews
     accepts_nested_attributes_for :reviews, :allow_destroy => true
     validates :name, presence: true, allow_blank: false
+
 end
