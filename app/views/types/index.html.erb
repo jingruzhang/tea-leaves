@@ -8,7 +8,17 @@
         <p><a class="btn btn-primary btn-lg" href="/types/new" role="button">Add a new type of tea</a></p>
     <% end %>
     </div><!-- /.col-sm-6 -->
-
+    <div class="col-sm-2"></div>
+    <div class="col-sm-4">
+    <h3>Here are the teas that have been reviewed by users: </h3>
+    <ul>
+    <% Review.reviewed_tea.each do |t| %>
+        <% if !t.nil? %>
+            <li><%= link_to t.name, t %></li>
+        <% end %>
+    <% end %>
+    </ul>
+    </div>
 </div>
 
 
