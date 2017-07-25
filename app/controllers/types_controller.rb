@@ -16,7 +16,7 @@ class TypesController < ApplicationController
     end
 
     def show
-        return redirect_to types_path if params[:id].nil?
+        return redirect_to types_path if !set_type
         @type = Type.find_by(id: params[:id])
     end
 

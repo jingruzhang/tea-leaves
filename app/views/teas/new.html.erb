@@ -1,5 +1,12 @@
 <div class="container">
    <h1>New <%= @type.name%> Tea</h1>
+   <% if @tea.errors.any? %>
+        <div id="flash_error">
+            <% @tea.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+        </div>
+    <% end %>
     <%= render 'form' %>
 </div>
 
