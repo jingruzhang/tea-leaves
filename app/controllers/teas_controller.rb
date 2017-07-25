@@ -21,7 +21,7 @@ class TeasController < ApplicationController
     end
 
     def show
-        @reviews = @tea.reviews
+        @reviews = @tea.reviews if @tea.reviews
     end
 
     def index
@@ -55,6 +55,6 @@ class TeasController < ApplicationController
     end
 
     def tea_params
-        params.require(:tea).permit(:name, :origin, :profile, :instruction, :type_id)
+        params.require(:tea).permit(:name, :origin, :profile, :instruction, :type_id, :reviews_attributes => [:content, :user_id, :_destroy])
     end
 end
