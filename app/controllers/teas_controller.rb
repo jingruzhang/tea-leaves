@@ -55,6 +55,6 @@ class TeasController < ApplicationController
     end
 
     def tea_params
-        params.require(:tea).permit(:name, :origin, :profile, :instruction, :type_id, :reviews_attributes => [:content, :user_id, :_destroy])
+        params.require(:tea).permit(:name, :origin, :profile, :instruction, :type_id, :reviews_attributes => [:id, :content, :user_id])
     end
 end
