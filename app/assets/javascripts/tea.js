@@ -1,4 +1,9 @@
-Array.from($('.tea')).forEach(ele => ele.addEventListener("click", function(elem) { 
-	elem.preventDefault();
-	alert("you clicked me");
-}))
+Array.from($('.tea')).forEach(function(ele){ 
+	var uri = $(ele).attr('href');
+	ele.addEventListener("click", function(elem) { 
+		elem.preventDefault();
+		$.get(uri, function() {
+			alert("you got there!")}
+		)}
+	)
+})
