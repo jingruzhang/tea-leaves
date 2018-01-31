@@ -1,3 +1,5 @@
+<%= javascript_include_tag "tea" %>
+
 <div class="container">
     <div class="col-md-8">
         <h2>About <%= @type.name%> Tea: </h2>
@@ -26,9 +28,3 @@
 
 </div>
 
-<script>
-    Array.from($('.tea')).forEach(ele => ele.addEventListener("click", function(elem) { 
-    elem.preventDefault();
-    alert("you clicked me")})
-    )
-</script>
