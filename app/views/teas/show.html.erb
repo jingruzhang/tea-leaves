@@ -13,11 +13,12 @@
     <% if !current_user %>
         <p><a class="btn btn-primary" href="/users/sign_in" role="button">Sign in and add reviews!</a></p>
     <% else %>
-        <p><a class="btn btn-primary" href="/teas/<%=@tea.id%>/reviews/new" role="button">Add review for <%= @tea.name %></a></p>
-        <p><a class="btn btn-primary" href="/types/<%=@tea.type.id %>/teas/<%=@tea.id%>/destroy" role="button">Delete <%= @tea.name %></a></p>
+        <a class="btn btn-primary" href="/teas/<%=@tea.id%>/reviews/new" role="button">Add review for <%= @tea.name %></a>
+        <a class="btn btn-primary" href="/types/<%=@tea.type.id %>/teas/<%=@tea.id%>/destroy" role="button">Delete <%= @tea.name %></a>
     <% end %>
 
-    <p><a class="btn btn-primary" href="/types/<%= @tea.type.id%>/teas" role="button">See other <%= @tea.type.name %> tea</a></p>
+    <a class="btn btn-primary" href="/types/<%= @tea.type.id%>/teas" role="button">See other <%= @tea.type.name %> tea</a>
+    
     <% if current_user.try(:admin?) %>
         <p><a class="btn btn-primary" href="/types/<%= @tea.type.id%>/teas/<%= @tea.id%>/edit" role="button">Edit <%= @tea.name%></a></p>
         <p><a class="btn btn-primary" href="/types/<%= @tea.type.id%>/teas/<%= @tea.id %>/destroy" role="button">Delete <%= @tea.name%></a></p>
