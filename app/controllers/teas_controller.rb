@@ -22,6 +22,7 @@ class TeasController < ApplicationController
 
     def show
         @reviews = @tea.reviews if @tea.reviews
+        render :show, :layout => false
     end
 
     def index
