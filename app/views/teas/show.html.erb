@@ -1,35 +1,30 @@
-<div class="container">
-    <div class="col-md-8">
-        <h1><%= @tea.name%></h1>
-        <p>Type: <%= link_to @tea.type.name, @tea.type %></p>
-        <h3>Origin: </h3>
-        <p><%= @tea.origin %></p>
+<div class="container-fluid">
+    <h1><%= @tea.name%></h1>
+    <p>Type: <%= link_to @tea.type.name, @tea.type %></p>
+    <h3>Origin: </h3>
+    <p><%= @tea.origin %></p>
 
-        <h3>Flavor & Aroma: </h3>
-        <p><%= @tea.profile %></p>
+    <h3>Flavor & Aroma: </h3>
+    <p><%= @tea.profile %></p>
 
-        <h3>How to brew <%= @tea.name %> tea: </h3>
-        <p><%= @tea.instruction %></p><br>
-    </div>
+    <h3>How to brew <%= @tea.name %> tea: </h3>
+    <p><%= @tea.instruction %></p><br>
 
-    <div class="col-md-3">
-        <br>
-        <br>
-        <% if !current_user %>
-            <p><a class="btn btn-primary" href="/users/sign_in" role="button">Sign in and add reviews!</a></p>
-        <% else %>
-            <p><a class="btn btn-primary" href="/teas/<%=@tea.id%>/reviews/new" role="button">Add review for <%= @tea.name %></a></p>
-            <p><a class="btn btn-primary" href="/types/<%=@tea.type.id %>/teas/<%=@tea.id%>/destroy" role="button">Delete <%= @tea.name %></a></p>
-        <% end %>
+    <% if !current_user %>
+        <p><a class="btn btn-primary" href="/users/sign_in" role="button">Sign in and add reviews!</a></p>
+    <% else %>
+        <p><a class="btn btn-primary" href="/teas/<%=@tea.id%>/reviews/new" role="button">Add review for <%= @tea.name %></a></p>
+        <p><a class="btn btn-primary" href="/types/<%=@tea.type.id %>/teas/<%=@tea.id%>/destroy" role="button">Delete <%= @tea.name %></a></p>
+    <% end %>
 
-        <p><a class="btn btn-primary" href="/types/<%= @tea.type.id%>/teas" role="button">See other <%= @tea.type.name %> tea</a></p>
-        <% if current_user.try(:admin?) %>
-            <p><a class="btn btn-primary" href="/types/<%= @tea.type.id%>/teas/<%= @tea.id%>/edit" role="button">Edit <%= @tea.name%></a></p>
-            <p><a class="btn btn-primary" href="/types/<%= @tea.type.id%>/teas/<%= @tea.id %>/destroy" role="button">Delete <%= @tea.name%></a></p>
-        <% end %>
-        <div class="list-group">
-            <%= render @reviews %>
-        </div>
+    <p><a class="btn btn-primary" href="/types/<%= @tea.type.id%>/teas" role="button">See other <%= @tea.type.name %> tea</a></p>
+    <% if current_user.try(:admin?) %>
+        <p><a class="btn btn-primary" href="/types/<%= @tea.type.id%>/teas/<%= @tea.id%>/edit" role="button">Edit <%= @tea.name%></a></p>
+        <p><a class="btn btn-primary" href="/types/<%= @tea.type.id%>/teas/<%= @tea.id %>/destroy" role="button">Delete <%= @tea.name%></a></p>
+    <% end %>
+
+    <div class="list-group">
+        <%= render @reviews %>
     </div>
 
 </div>

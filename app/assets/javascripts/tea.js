@@ -4,7 +4,7 @@ $(function() {
 		ele.addEventListener("click", function(elem) { 
 			elem.preventDefault();
 			$.get(uri, function(data) {
-				$('body').append(data)
+				$('#clicked-tea').html(data)
 			})
 		})
 	})
