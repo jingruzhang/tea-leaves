@@ -7,6 +7,13 @@
 
         <h2>How to brew <%= @type.name %> tea: </h2>
         <p><%= @type.instruction %></p>
+        
+        <nav>
+          <ul class="pagination justify-content-end">
+            <li class="page-item"><a class="page-link" href="#">Previous</a></li>
+            <li class="page-item"><a class="page-link" href="#">Next</a></li>
+          </ul>
+        </nav>
 
         <% if current_user.try(:admin?) %>
             <p><a class="btn btn-primary" href="/types/<%=@type.id %>/edit" role="button">Edit <%= @type.name %> category</a>    <a class="btn btn-primary" href="/types/<%= @type.id%>/destroy" role="button">Delete <%= @type.name %> category</a></p>
@@ -28,7 +35,7 @@
         <br>
         <p><a class="btn btn-primary" href="/users/sign_in" role="button">Sign in to add tea and reviews!</a></p>
         <% end %>
-        <p><a class="btn btn-primary" href="/types" role="button">See Other Types</a></p>
+        <p><a class="btn btn-primary" href="/types" role="button">Back to Main</a></p>
     </div>
 
 </div>
