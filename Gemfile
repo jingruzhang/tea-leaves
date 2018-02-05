@@ -48,6 +48,7 @@ gem 'omniauth-facebook'
 gem 'omniauth-github'
 gem 'dotenv-rails'
 gem 'bootstrap-sass', '~> 3.3.6'
+gem 'handlebars_assets'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
