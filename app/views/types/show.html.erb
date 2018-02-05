@@ -1,17 +1,19 @@
 <%= javascript_include_tag "tea" %>
-
+<%= javascript_include_tag "type" %>
 <div class="container-fluid">
     <div class="col-md-8">
-        <h2>About <%= @type.name%> Tea: </h2>
-        <p><%= @type.about %></p>
+        <div id="js-type">
+            <h2>About <%= @type.name%> Tea: </h2>
+            <p><%= @type.about %></p>
 
-        <h2>How to brew <%= @type.name %> tea: </h2>
-        <p><%= @type.instruction %></p>
+            <h2>How to brew <%= @type.name %> tea: </h2>
+            <p><%= @type.instruction %></p>
+        </div>
         
         <nav>
           <ul class="pagination justify-content-end">
-            <li class="page-item"><a class="page-link" href="#">Previous</a></li>
-            <li class="page-item"><a class="page-link" href="#">Next</a></li>
+            <li class="page-item"><a class="page-link" id="js-previous-type" href="#">Previous</a></li>
+            <li class="page-item"><a class="page-link" id="js-next-type" href="#">Next</a></li>
           </ul>
         </nav>
 
