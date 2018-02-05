@@ -22,7 +22,10 @@ class TeasController < ApplicationController
 
     def show
         @reviews = @tea.reviews if @tea.reviews
-        render :layout => false
+        respond_to do |format|
+            format.html
+            format.json {render json: @tea}
+        end
     end
 
     def index

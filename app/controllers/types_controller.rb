@@ -18,6 +18,10 @@ class TypesController < ApplicationController
     def show
         return redirect_to types_path if !set_type
         @type = Type.find_by(id: params[:id])
+        respond_to do |format|
+            format.html
+            format.json {render json: @type}
+        end
     end
 
     def index
