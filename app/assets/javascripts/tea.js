@@ -1,6 +1,6 @@
-$(
+$(function() {
 	teaClickListener();
-)
+})
 
 class Tea {
 	constructor(tea_params) {
@@ -27,7 +27,8 @@ function teaClickListener() {
 
 //load ajax
 function loadAjax(uri) {
-	$.get(uri, function(data) {
-		$('#clicked-tea').html(data)
+	$.getJSON(uri, function(data) {
+		let clicked_tea = HandlebarsTemplates['teas/index'](new Tea(data));
+		$('#clicked-tea').html(clicked_tea)
 	})
 }
