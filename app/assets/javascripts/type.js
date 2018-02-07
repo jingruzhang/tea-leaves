@@ -47,6 +47,7 @@ function loadType (id, next_id) {
 			$('#clicked-tea').empty();
 			$('#js-type').html(next_type_show);
 			$('#js-type-tea').html(next_type_tea);
+			history.pushState(null, null, '/types/' + next_type.id)
 		})
 	})
 }
