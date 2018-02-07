@@ -1,0 +1,7 @@
+<h3>List of {{name}} teas: </h3>
+{{#each teas}}
+	<a href="/types/{{type.id}}/teas/{{id}}" class="list-group-item tea">
+	  <h5 class="list-group-item-heading">{{name}}</h5>
+	</a>
+{{/each}}
+<br>

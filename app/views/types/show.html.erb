@@ -27,9 +27,11 @@
 
     
     <div class="col-sm-3">
-        <h3>List of <%= @type.name%> teas: </h3>
-        <%= render @type.teas %>
-        <br>
+        <div class="js-type-tea">
+            <h3>List of <%= @type.name%> teas: </h3>
+            <%= render @type.teas %>
+            <br>
+        </div>
         <% if current_user %>
         <p>Didn't see what you're looking for?</p>
         <p><a class="btn btn-primary" href="/types/<%=@type.id %>/teas/new" role="button">Add a new <%= @type.name%> tea</a></p>
