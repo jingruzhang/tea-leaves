@@ -43,7 +43,7 @@ function loadType (id, next_id) {
 		$.getJSON('/types/' + next_id).done(function(data) {
 			let next_type = new Type(data);
 			let next_type_show = $(HandlebarsTemplates['types/show-type'](next_type));
-			let next_type_tea = $(HandlebarsTemplates['types/show-type-tea'](next_type))
+			let next_type_tea = $(HandlebarsTemplates['types/show-type-tea'](next_type));
 			$('#clicked-tea').empty();
 			$('#js-type').html(next_type_show);
 			$('#js-type-tea').html(next_type_tea);
