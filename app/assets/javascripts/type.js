@@ -24,23 +24,40 @@ function nextTypeListener() {
     	ele.preventDefault();
     	let id = getCurrentTypeId();
     	let next_id = null;
-    	loadType(id, next_id);
+    	$.getJSON('/types', function(data) {
+			$.each(data, function( key, val ) { 
+				if (val.id === id) {
+					next_id = data[key + 1].id;
+				}
+			})
+			loadType(next_id);
+		})
     })
 
 }
 
 //previous type listener
-function previousTypeListener() {}
+function previousTypeListener() {
+    $('#js-previous-type').click(function(ele) {
+    	ele.preventDefault();
+    	let id = getCurrentTypeId();
+    	let previous_id = null;
+    	$.getJSON('/types', function(data) {
+			$.each(data, function( key, val ) { 
+				if (val.id === id) {
+					previous_id = data[key - 1].id;
+				}
+			})	
+    		loadType(previous_id);
+    	})
+    })
+}
+
 
 //load type
-function loadType (id, next_id) {
+function loadType (new_id) {
 	$.getJSON('/types', function(data) {
-		$.each(data, function( key, val ) { 
-			if (val.id === id) {
-				next_id = data[key + 1].id;
-			}
-		})
-		$.getJSON('/types/' + next_id).done(function(data) {
+		$.getJSON('/types/' + new_id).done(function(data) {
 			let next_type = new Type(data);
 			let next_type_show = $(HandlebarsTemplates['types/show-type'](next_type));
 			let next_type_tea = $(HandlebarsTemplates['types/show-type-tea'](next_type));
