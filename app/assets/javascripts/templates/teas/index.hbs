@@ -11,5 +11,12 @@
 </div>
 
 <div class="list-group">
-    
+	{{#if reviews}}
+		<h4>Review: </h4>
+		<ul>
+	    {{#each reviews}}
+	    <li>"{{content}}"</li>
+	    {{/each}}
+	    </ul>
+    {{/if}}
 </div>
