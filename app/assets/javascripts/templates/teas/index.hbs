@@ -12,11 +12,12 @@
 
 <div class="list-group">
 	{{#if reviews}}
-		<h4>Review: </h4>
-		<ul>
+		<h4>Reviews: </h4>
 	    {{#each reviews}}
-	    <li>"{{content}}"</li>
+	    <a href="/teas/{{tea.id}}/reviews/{{id}}" class="list-group-item">
+	    <p>"{{content}}"</p>
+	    <p>-- {{user.name}}</p>
+	    </a>
 	    {{/each}}
-	    </ul>
     {{/if}}
 </div>
