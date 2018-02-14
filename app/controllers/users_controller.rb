@@ -17,4 +17,12 @@ class UsersController < ApplicationController
         redirect_to root_url
     end
 
+    #api call functions
+    def loggedin_user
+        respond_to do |format|
+            format.json {render json: current_user}
+            format.html {redirect_to root_path}
+        end
+    end
+
 end

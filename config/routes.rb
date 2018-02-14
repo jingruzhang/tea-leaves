@@ -26,4 +26,7 @@ Rails.application.routes.draw do
     post '/search', to: 'search#search'
     get '/result', to: 'search#result'
     post '/result', to: 'search#result'
+
+    #api calls related
+    get '/loggedin_user', to: 'users#loggedin_user'
 end
