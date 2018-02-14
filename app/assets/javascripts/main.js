@@ -6,4 +6,6 @@ function getUser() {
 }
 
 //load corresponding listeners based on current pages
-
+$(function() {
+	getUser();
+})

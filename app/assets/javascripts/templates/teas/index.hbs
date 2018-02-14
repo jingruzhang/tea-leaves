@@ -21,3 +21,10 @@
 	    {{/each}}
     {{/if}}
 </div>
+
+<div>
+    {{#unless currentUser}}
+    	<a class="btn btn-primary" href="/teas/{{id}}/reviews/new" role="button">Add review for "{{name}}" </a>
+        <a class="btn btn-primary" href="/types/{{type_id}}/teas/{{id}}/destroy" role="button">Delete "{{name}}"</a>
+    {{/unless}}
+</div>
