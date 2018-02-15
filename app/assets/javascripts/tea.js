@@ -1,6 +1,3 @@
-$(function() {
-	teaClickListener();
-})
 
 class Tea {
 	constructor(tea_params) {
@@ -11,6 +8,7 @@ class Tea {
 		this.instruction = tea_params.instruction;
 		this.type_id = tea_params.type_id;
 		this.reviews = tea_params.reviews;
+		this.currentUser = tea_params.current_user;
 	}
 }
 
