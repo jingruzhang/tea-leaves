@@ -1,4 +1,5 @@
 let currentUser;
+let currentTea;
 
 //check for loggedin user
 function getUser() {
@@ -11,4 +12,5 @@ $(function() {
 	teaClickListener();
 	nextTypeListener(); 
 	previousTypeListener();
+	//addReviewListener();
 })

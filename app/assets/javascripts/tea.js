@@ -26,7 +26,9 @@ function teaClickListener() {
 //load ajax
 function loadAjax(uri) {
 	$.getJSON(uri, function(data) {
-		let clicked_tea = HandlebarsTemplates['teas/index'](new Tea(data));
-		$('#clicked-tea').html(clicked_tea)
+		currentTea = new Tea(data);
+		let clicked_tea = HandlebarsTemplates['teas/index'](currentTea);
+		$('#clicked-tea').html(clicked_tea);
+		addReviewListener();
 	})
 }

@@ -1,0 +1,16 @@
+<form class="new_review" id="new_review" action="/reviews" accept-charset="UTF-8" method="post">
+
+    <input value={{currentUser.id}} type="hidden" name="review[user_id]" id="review_user_id">
+
+    <input value={{id}} type="hidden" name="review[tea_id]" id="review_tea_id">
+
+    <div class="field"> 
+    	<h3>Your Review <label for="review_content">Content</label></h3>
+    	<textarea name="review[content]" id="review_content" cols="80" rows="10" style="z-index: auto; position: relative; line-height: 20px; font-size: 14px; transition: none; background: transparent !important;"></textarea>
+    </div>
+
+    <input type="submit" name="commit" value="Submit" class="btn btn-primary" data-disable-with="Submit">
+
+    <a class="btn btn-primary" href="/teas/{{id}}" role="button">Back</a>
+
+</form>
