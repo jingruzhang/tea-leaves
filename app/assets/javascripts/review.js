@@ -16,9 +16,35 @@ function loadForm() {
 	submitFormListener();
 }
 
+//submit review
+function submitReview(data) {
+	let review;
+
+	try {
+		review = $.ajax({
+			url: '/reviews',
+			type: 'POST',
+			data: $(data).serialize(),
+			dataType: 'json'
+		})
+
+		if (review) {
+			buildReview(review);
+		}
+	}
+}
+
+//build review
+function buildReview(review) {
+
+}
+
 //submit form
 function submitFormListener() {
-	
+	$('#new_review').submit(function(ele) {
+		ele.preventDefault();
+        submitReview(this);
+	})
 }
 
 //append 
