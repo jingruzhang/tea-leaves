@@ -15,6 +15,18 @@ class Review {
     }
 }
 
+//listen click for viewing reviews
+function viewReviewsListener() {
+	$("#js-reviews-link").click(function(ele) {
+		$('#clicked-reviews').html("");
+		ele.preventDefault();
+		$.getJSON('/teas/' + currentTea.id + '/reviews').done(function(response) {
+			response.forEach(review => buildReview(review));
+		});
+	})
+	addReviewListener();
+}
+
 //listen click for adding review
 function addReviewListener() {
 	$("#add-review").click(function(ele) {
@@ -60,6 +72,6 @@ function submitFormListener() {
 //append 
 function loadReview(review) {
 	let addedReview = HandlebarsTemplates['reviews/review'](review);
-	$('#clicked-tea .list-group').append(addedReview);
+	$('#clicked-reviews').append(addedReview);
 	$('#new_review').remove();
 }

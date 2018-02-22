@@ -11,15 +11,10 @@
 </div>
 
 <div class="list-group">
-	{{#if reviews}}
-		<h4>Reviews: </h4>
-	    {{#each reviews}}
-	    <a href="/teas/{{tea.id}}/reviews/{{id}}" class="list-group-item">
-	    <p>"{{content}}"</p>
-	    <h6>-- {{user.name}} on {{formattedDate}}</h6>
-	    </a>
-	    {{/each}}
-    {{/if}}
+	<a href="" id="js-reviews-link" class="btn btn-primary" data-toggle="collapse" role="button">Reviews({{reviews.length}})</a>
+	<div id="clicked-reviews">
+	</div>
+
 </div>
 
 <div>

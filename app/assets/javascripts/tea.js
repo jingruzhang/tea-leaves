@@ -7,9 +7,11 @@ class Tea {
 		this.profile = tea_params.profile;
 		this.instruction = tea_params.instruction;
 		this.type_id = tea_params.type_id;
+		this.reviews = tea_params.reviews;
 		this.currentUser = tea_params.current_user;
 	}
 }
+
 
 //Listener function for click
 function teaClickListener() {
@@ -25,10 +27,9 @@ function teaClickListener() {
 //load ajax
 function loadAjax(uri) {
 	$.getJSON(uri, function(data) {
-		debugger;
 		currentTea = new Tea(data);
 		let clicked_tea = HandlebarsTemplates['teas/index'](currentTea);
 		$('#clicked-tea').html(clicked_tea);
-		addReviewListener();
+		viewReviewsListener();
 	})
 }
