@@ -12,7 +12,10 @@ class ReviewsController < ApplicationController
     def create
         @review = current_user.reviews.build(review_params)
         if @review.save
-            redirect_to tea_path(@review.tea)
+            respond_to do |format|
+                format.html { redirect_to tea_path(@review.tea)}
+                format.json { render :json => @review }
+            end
         else
             set_tea
             render :new

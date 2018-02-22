@@ -1,5 +1,9 @@
 <form class="new_review" id="new_review" action="/reviews" accept-charset="UTF-8" method="post">
 
+	
+	<input name="utf8" type="hidden" value="&#x2713;">
+
+
     <input value={{currentUser.id}} type="hidden" name="review[user_id]" id="review_user_id">
 
     <input value={{id}} type="hidden" name="review[tea_id]" id="review_tea_id">
