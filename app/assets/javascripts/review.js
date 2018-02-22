@@ -33,7 +33,6 @@ function submitReview(data) {
 		data: $(data).serialize(),
 		dataType: 'json',
 		success: function (response) {
-			console.log(response);
 			buildReview(response);
 		}
 	})
@@ -41,8 +40,8 @@ function submitReview(data) {
 
 //build review
 function buildReview(review_params) {
-	let review = new Review(review_params)
-	debugger;
+	let review = new Review(review_params);
+	loadReview(review);
 }
 
 //submit form
@@ -54,3 +53,8 @@ function submitFormListener() {
 }
 
 //append 
+function loadReview(review) {
+	let addedReview = HandlebarsTemplates['reviews/review'](review);
+	$('#clicked-tea .list-group').append(addedReview);
+	$('#new_review').remove();
+}
