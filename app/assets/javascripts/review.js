@@ -5,9 +5,14 @@ class Review {
 	constructor(review_params) {
 		this.id = review_params.id;
 		this.content = review_params.content;
+		this.created_at = review_params.created_at;
 		this.tea = review_params.tea;
 		this.user = review_params.user;
 	}
+
+	formattedDate() {
+        return new Date(this.created_at).toLocaleDateString();
+    }
 }
 
 //listen click for adding review

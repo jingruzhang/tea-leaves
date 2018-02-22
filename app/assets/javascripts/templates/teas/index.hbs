@@ -16,7 +16,7 @@
 	    {{#each reviews}}
 	    <a href="/teas/{{tea.id}}/reviews/{{id}}" class="list-group-item">
 	    <p>"{{content}}"</p>
-	    <p>-- {{user.name}}</p>
+	    <h6>-- {{user.name}} on {{formattedDate}}</h6>
 	    </a>
 	    {{/each}}
     {{/if}}
