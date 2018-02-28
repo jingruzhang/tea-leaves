@@ -9,13 +9,13 @@ class Type {
 }
 
 function getCurrentTypeId() {
-	var path =  window.location.pathname.split('/');
+	let path =  window.location.pathname.split('/');
 	return parseInt(path[path.length - 1]);
 }
 
 //next type listener
 function nextTypeListener() {
-    $('#js-next-type').click(function(ele) {
+    $('#js-next-type').on("click", function(ele) {
     	ele.preventDefault();
     	let id = getCurrentTypeId();
     	let next_id = null;
@@ -28,12 +28,11 @@ function nextTypeListener() {
 			loadType(next_id);
 		})
     })
-
 }
 
 //previous type listener
 function previousTypeListener() {
-    $('#js-previous-type').click(function(ele) {
+    $('#js-previous-type').on("click", function(ele) {
     	ele.preventDefault();
     	let id = getCurrentTypeId();
     	let previous_id = null;

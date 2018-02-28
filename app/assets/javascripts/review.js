@@ -18,13 +18,17 @@ class Review {
 //listen click for viewing reviews
 function viewReviewsListener() {
 	$("#js-reviews-link").click(function(ele) {
-		$('#clicked-reviews').html("");
-		ele.preventDefault();
-		$.getJSON('/teas/' + currentTea.id + '/reviews').done(function(response) {
-			response.forEach(review => buildReview(review));
-		});
+		if (currentUser != null) {
+			$('#clicked-reviews').html("");
+			ele.preventDefault();
+			$.getJSON('/teas/' + currentTea.id + '/reviews').done(function(response) {
+				response.forEach(review => buildReview(review));
+			});
+			addReviewListener();
+		} else {
+			alert("Only logged-in users can view reviews. Please sign up or log in.");
+		}
 	})
-	addReviewListener();
 }
 
 //listen click for adding review

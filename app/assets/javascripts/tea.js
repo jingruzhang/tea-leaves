@@ -15,8 +15,8 @@ class Tea {
 
 //Listener function for click
 function teaClickListener() {
-	Array.from($('.tea')).forEach(function(ele){ 
-		var uri = $(ele).attr('href');
+	Array.from($('.tea')).forEach(function(ele){
+		let uri = $(ele).attr('href');
 		ele.addEventListener("click", function(elem) { 
 			elem.preventDefault();
 			loadAjax(uri);
@@ -30,6 +30,6 @@ function loadAjax(uri) {
 		currentTea = new Tea(data);
 		let clicked_tea = HandlebarsTemplates['teas/index'](currentTea);
 		$('#clicked-tea').html(clicked_tea);
-		viewReviewsListener();
 	})
+	viewReviewsListener();
 }

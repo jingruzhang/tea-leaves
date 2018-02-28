@@ -7,11 +7,10 @@ function getUser() {
 	$.getJSON('/loggedin_user', { format: 'json' }).then(resp => currentUser = resp);
 }
 
-//load corresponding listeners based on current pages
-$(function() {
+
+$(document).on('turbolinks:load', function() {
 	getUser();
 	teaClickListener();
 	nextTypeListener(); 
 	previousTypeListener();
-	//addReviewListener();
-})
+});
