@@ -11,6 +11,6 @@ function getUser() {
 $(document).on('turbolinks:load', function() {
 	getUser();
 	teaClickListener();
-	nextTypeListener(); 
+	nextTypeListener();
 	previousTypeListener();
 });
