@@ -18,7 +18,6 @@ class Review {
 //listen click for viewing reviews
 function viewReviewsListener() {
 	$("#js-reviews-link").click(function(ele) {
-		debugger;
 		if (currentUser != null) {
 			$('#clicked-reviews').html("");
 			ele.preventDefault();
