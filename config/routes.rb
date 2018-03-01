@@ -19,7 +19,7 @@ Rails.application.routes.draw do
     # role related
     get '/become_admin', to: 'users#become_admin'
     get '/become_user', to: 'users#become_user'
-    get '/users/:user_id/reviews', to: 'reviews#index', as: :user_reviews
+    get '/users/:user_id/reviews', to: 'reviews#user_index', as: :user_reviews
 
     # search function
     get '/search', to: 'search#search'

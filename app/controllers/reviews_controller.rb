@@ -1,7 +1,7 @@
 class ReviewsController < ApplicationController
     before_action :authenticate_user!
     before_action :set_review, only: [:show, :edit, :update, :delete]
-    before_action :set_tea, only: [:edit, :update, :delete]
+    before_action :set_tea, only: [:index, :edit, :update, :delete]
 
     def new
         @review = current_user.reviews.build
@@ -42,6 +42,14 @@ class ReviewsController < ApplicationController
     end
 
     def index
+        @reviews = @tea.reviews if @tea.reviews
+        respond_to do |format|
+            format.html { render :index }
+            format.json { render :json => @reviews }
+        end
+    end
+
+    def user_index
         @reviews = current_user.reviews
         respond_to do |format|
             format.html { render :index }
