@@ -18,14 +18,14 @@ function nextTypeListener() {
     $('#js-next-type').on("click", function(ele) {
     	ele.preventDefault();
     	let id = getCurrentTypeId();
-    	let next_id = null;
+    	let nextId = null;
     	$.getJSON('/types', function(data) {
 			$.each(data, function( key, val ) { 
 				if (val.id === id) {
-					next_id = data[key + 1].id;
+					nextId = data[key + 1].id;
 				}
 			})
-			loadType(next_id);
+			loadType(nextId);
 		})
     })
 }
@@ -35,30 +35,41 @@ function previousTypeListener() {
     $('#js-previous-type').on("click", function(ele) {
     	ele.preventDefault();
     	let id = getCurrentTypeId();
-    	let previous_id = null;
+    	let previousId = null;
     	$.getJSON('/types', function(data) {
 			$.each(data, function( key, val ) { 
 				if (val.id === id) {
-					previous_id = data[key - 1].id;
+					previousId = data[key - 1].id;
 				}
 			})	
-    		loadType(previous_id);
+    		loadType(previousId);
     	})
     })
 }
 
 
 //load type
-function loadType (new_id) {
+function loadType (newId) {
 	$.getJSON('/types', function(data) {
-		$.getJSON('/types/' + new_id).done(function(data) {
-			let next_type = new Type(data);
-			let next_type_show = $(HandlebarsTemplates['types/show-type'](next_type));
-			let next_type_tea = $(HandlebarsTemplates['types/show-type-tea'](next_type));
+		$.getJSON('/types/' + newId).done(function(data) {
+			let nextType = new Type(data);
+			nextType.teas.sort(function(teaA, teaB) {
+				let nameA = teaA.name.toUpperCase();
+				let nameB = teaB.name.toUpperCase();
+				if (nameA < nameB) {
+					return -1;
+				} if (nameA > nameB) {
+					return 1;
+				} else {
+					return 0;
+				}
+			})
+			let nextTypeShow = $(HandlebarsTemplates['types/show-type'](nextType));
+			let nextTypeTea = $(HandlebarsTemplates['types/show-type-tea'](nextType));
 			$('#clicked-tea').empty();
-			$('#js-type').html(next_type_show);
-			$('#js-type-tea').html(next_type_tea);
-			history.pushState(null, null, '/types/' + next_type.id)
+			$('#js-type').html(nextTypeShow);
+			$('#js-type-tea').html(nextTypeTea);
+			history.pushState(null, null, '/types/' + nextType.id)
 		})
 	})
 }
